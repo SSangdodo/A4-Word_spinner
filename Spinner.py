@@ -1,16 +1,20 @@
-# This is a sample Python script.
+def make_list_from_file(filename):
+    file_content = open(filename,"r")
+    returning_list = []
+    for lines in file_content:
+        returning_list.append(lines.strip("\n").strip(" "))
+    return returning_list
+class Spinner():
+    def __init__(self,file_words):
+            self.file_words_list = file_words
+            self.synonyms_data = make_response_dictionary(make_list_from_file("synonyms-simplified.txt"))
+    def convert_synonyms(self):
+        returning_list = []
+        for words in self.file_words_list:
+            # print(words,self.synonyms_data.get(words,1))
+            if self.synonyms_data.get(str(words),1) != 1 and randint(1,2) == 2:
+                returning_list.append(self.synonyms_data[str(words)][randint(0,len(self.synonyms_data[words])-1)])
+            else:
+                returning_list.append(words)
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+        return " ".join(returning_list)
