@@ -4,7 +4,7 @@ def make_list_from_file(filename):
     file_content = open(filename,"r")
     returning_list = []
     for lines in file_content:
-        for words in lines.lower().translate(str.maketrans('', '', string.punctuation)).split():
+        for words in lines.lower().translate(str.maketrans('', '', string.punctuation)).lower().split():
             returning_list.append(words)
     file_content.close()
     return returning_list
