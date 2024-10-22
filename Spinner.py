@@ -1,3 +1,4 @@
+#A4 Sangdo Lee
 from random import *
 def make_list_from_file(filename):
     file_content = open(filename,"r")

@@ -1,3 +1,4 @@
+#A4, Sangdo Lee
 from Spinner import *
 import string
 def make_list_from_file(filename):
